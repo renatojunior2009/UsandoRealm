@@ -1,0 +1,26 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="UsandoRealm.Views.EditaFuncionarioPage"
+             Title="Editar funcionário">
+    <TableView Intent="Settings" BackgroundColor="White">
+        <TableRoot>
+            <TableSection Title="Editar">
+                <EntryCell x:Name="txtNome" Label="Nome" Text ="{Binding Nome}" Keyboard="Text" />
+                <EntryCell x:Name="txtCargo" Label="Cargo" Text ="{Binding Cargo}" Keyboard="Text" />
+                <EntryCell x:Name="txtSetor" Label="Setor" Text ="{Binding Setor}" Keyboard="Text" />
+                <EntryCell x:Name="txtQualificacao" Label="Qualificação" Text ="{Binding Qualificacao}" Keyboard="Text" />
+                <ViewCell>
+                    <ContentView Padding="0,0">
+                        <ContentView.Padding>
+                            <OnPlatform x:TypeArguments="Thickness" iOS="10,0" WinPhone="0,15,0,0" />
+                        </ContentView.Padding>
+                        <ContentView.Content>
+                            <Button BackgroundColor="#fd6d6d" Text="Alterar dados" TextColor="White" Clicked="btnOnSalvarClicked" />
+                        </ContentView.Content>
+                    </ContentView>
+                </ViewCell>
+            </TableSection>
+        </TableRoot>
+    </TableView>
+</ContentPage>

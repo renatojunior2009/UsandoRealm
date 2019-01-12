@@ -4,11 +4,47 @@
              xmlns:local="clr-namespace:UsandoRealm"
              x:Class="UsandoRealm.MainPage">
 
-    <StackLayout>
-        <!-- Place new controls here -->
-        <Label Text="Welcome to Xamarin.Forms!" 
-           HorizontalOptions="Center"
-           VerticalOptions="CenterAndExpand" />
-    </StackLayout>
+    <ContentPage.Padding>
+        <OnPlatform x:TypeArguments="Thickness" iOS="0,20,0,0"/>
+    </ContentPage.Padding>
 
+    <ContentPage.Content>
+        <ListView x:Name="lvFuncionarios" 
+                  HasUnevenRows="false" 
+                  Header="Header Value" 
+                  Footer="Footer" 
+                  ItemSelected="lvFuncionarios_OnSelecao">
+            <ListView.HeaderTemplate>
+                <DataTemplate>
+                    <StackLayout Orientation="Horizontal"
+                                 BackgroundColor="Blue"
+                                 Padding="5,5,5,5">
+                        <Label Text="Nome"/>
+                        <Label Text="Cargo"/>
+                        <Label Text="Setor"/>
+                    </StackLayout>
+                </DataTemplate>
+            </ListView.HeaderTemplate>
+            <ListView.ItemTemplate>
+                <DataTemplate>
+                    <ViewCell>
+                        <StackLayout Orientation="Horizontal"
+                                     Padding="5,5,5,5">
+                            <Label Text="{Binding Nome}"/>
+                            <Label Text="{Binding Cargo}"/>
+                            <Label Text="{Binding Setor}"/>
+                        </StackLayout>
+                    </ViewCell>
+                </DataTemplate>
+            </ListView.ItemTemplate>
+            <ListView.FooterTemplate>
+                <DataTemplate>
+                    <StackLayout Orientation="Horizontal"
+                                 Padding="5,5,5,5">
+                        <Button Text="Incluir Funcionário" Clicked="btnIncluir_Click"/>
+                    </StackLayout>
+                </DataTemplate>
+            </ListView.FooterTemplate>
+        </ListView>
+    </ContentPage.Content>
 </ContentPage>
